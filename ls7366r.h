@@ -132,7 +132,7 @@ uint8_t _ls7366r_spi_transfer( uint8_t chip_sel, uint8_t out );
 
 #define _LS7366R_CMD_CLEAR_MDR0        (0x08) /* clear mode register 0           */
 #define _LS7366R_CMD_CLEAR_MDR1        (0x10) /* clear mode register 1           */
-#define _LS7366R_CMD_CLEAR_CNTR        (0x20) /* clear data                   */
+#define _LS7366R_CMD_CLEAR_CNTR        (0x20) /* clear counter                   */
 #define _LS7366R_CMD_CLEAR_STR         (0x30) /* clear status register           */
 
 #define _LS7366R_CMD_READ_MDR0         (0x48) /* read mode register 0            */
