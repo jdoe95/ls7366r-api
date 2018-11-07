@@ -25,29 +25,23 @@
 #define ENCODERS_DEGREE_TYPE 		float
 #define ENCODERS_FREQUENCY_TYPE 	float
 
+/*
+ * Array of encoder degrees
+ */
 typedef struct {
-	/* position reference in degrees */
-	ENCODERS_DEGREE_TYPE position_ref[ENCODERS_NUM_JOINTS];
-} encoders_position_ref_t;
+	ENCODERS_DEGREE_TYPE val[ENCODERS_NUM_JOINTS];
+} encoders_array_degrees_t;
 
 typedef struct {
 	/* polling frequency in Hz */
 	ENCODERS_FREQUENCY_TYPE poll_frequency;
 
-	/* degrees per tick for each joint */
-	ENCODERS_DEGREE_TYPE degrees_per_tick[ENCODERS_NUM_JOINTS];
+	/* degrees per 1000 tick for each joint */
+	const encoders_array_degrees_t *p_degrees_per_1000_tick;
 
 	/* initial assumption of position */
-	encoders_position_ref_t position_ref;
+	const encoders_array_degrees_t *p_position_ref;
 } encoders_init_t;
-
-typedef struct {
-	/* relative position to the position reference */
-	ENCODERS_DEGREE_TYPE relative_position[ENCODERS_NUM_JOINTS];
-
-	/* speed in degrees per second */
-	ENCODERS_DEGREE_TYPE speed[ENCODERS_NUM_JOINTS];
-} encoders_state_t;
 
 /*
  * Define these functions to replace the dummy
@@ -65,12 +59,28 @@ void _encoders_unlock_global( void );
 void encoders_init( const encoders_init_t *p_init );
 
 /**
- * @brief Obtains information of encoders
- * @param p_state pointer to a writable struct
+ * @brief Obtains speed information of encoders
+ * @param p_speed pointer to a writable struct
  * @return none
  * @note This function is thread safe.
  */
-void encoders_get_last_state( encoders_state_t *p_state );
+void encoders_get_speed( encoders_array_degrees_t *p_speed );
+
+/**
+ * @brief Obtains absolute position (since power-up) of encoders
+ * @param p_speed pointer to a writable struct
+ * @return none
+ * @note This function is thread safe.
+ */
+void encoders_get_position_abs( encoders_array_degrees_t *p_pos );
+
+/**
+ * @brief Obtains relative position of encoders
+ * @param p_speed pointer to a writable struct
+ * @return none
+ * @note This function is thread safe.
+ */
+void encoders_get_position_rel( encoders_array_degrees_t *p_pos );
 
 /**
  * @brief Changes position reference in runtime
@@ -78,7 +88,7 @@ void encoders_get_last_state( encoders_state_t *p_state );
  * @return none
  * @note This function is thread safe.
  */
-void encoders_set_position_ref( const encoders_position_ref_t *p_ref );
+void encoders_set_position_ref( const encoders_array_degrees_t *p_ref );
 
 /**
  * @brief Polls the encoder
