@@ -45,8 +45,8 @@
  * LOAD_OTR     : transfers CNTR to OTR upon index
  */
 #define LS7366R_MODE1_INDEX_DISABLE          (0 << 4) /* disable index */
-#define LS7366R_MODE1_INDEX_LOAD_data     (1 << 4) /* reset CNTR    */
-#define LS7366R_MODE1_INDEX_RESET_data    (2 << 4) /* reset CNTR    */
+#define LS7366R_MODE1_INDEX_LOAD_data     (1 << 4)    /* reset CNTR    */
+#define LS7366R_MODE1_INDEX_RESET_data    (2 << 4)    /* reset CNTR    */
 #define LS7366R_MODE1_INDEX_LOAD_OTR         (3 << 4) /* load OTR      */
 
 /*
@@ -108,11 +108,11 @@
 #define LS7366R_STATUS_IS_CARRY            (1 << 7) /* set if data overflow   */
 #define LS7366R_STATUS_IS_BORROW           (1 << 6) /* set if data underflow  */
 #define LS7366R_STATUS_IS_COMPARE          (1 << 5) /* set if data = data     */
-#define LS7366R_STATUS_IS_INDEX            (1 << 4) /* set if index pin          */
+#define LS7366R_STATUS_IS_INDEX            (1 << 4) /* set if index pin       */
 #define LS7366R_STATUS_IS_COUNT_ENABLE     (1 << 3) /* set if data enable pin */
-#define LS7366R_STATUS_IS_POWER_LOSS       (1 << 2) /* set upon power up         */
-#define LS7366R_STATUS_IS_COUNT_UP         (1 << 1) /* set if count up           */
-#define LS7366R_STATUS_IS_NEGATIVE         (1 << 0) /* set if negative           */
+#define LS7366R_STATUS_IS_POWER_LOSS       (1 << 2) /* set upon power up      */
+#define LS7366R_STATUS_IS_COUNT_UP         (1 << 1) /* set if count up        */
+#define LS7366R_STATUS_IS_NEGATIVE         (1 << 0) /* set if negative        */
 
 /*
  * Initialization configuration for a single encoder
@@ -130,20 +130,20 @@ void _ls7366r_chip_sel( uint8_t chip_sel );
 void _ls7366r_chip_desel( uint8_t chip_sel );
 uint8_t _ls7366r_spi_transfer( uint8_t chip_sel, uint8_t out );
 
-#define _LS7366R_CMD_CLEAR_MDR0        (0x08) /* clear mode register 0           */
-#define _LS7366R_CMD_CLEAR_MDR1        (0x10) /* clear mode register 1           */
-#define _LS7366R_CMD_CLEAR_CNTR        (0x20) /* clear counter                   */
-#define _LS7366R_CMD_CLEAR_STR         (0x30) /* clear status register           */
+#define _LS7366R_CMD_CLEAR_MDR0        (0x08) /* clear mode register 0        */
+#define _LS7366R_CMD_CLEAR_MDR1        (0x10) /* clear mode register 1        */
+#define _LS7366R_CMD_CLEAR_CNTR        (0x20) /* clear counter                */
+#define _LS7366R_CMD_CLEAR_STR         (0x30) /* clear status register        */
 
-#define _LS7366R_CMD_READ_MDR0         (0x48) /* read mode register 0            */
-#define _LS7366R_CMD_READ_MDR1         (0x50) /* read mode register 1            */
+#define _LS7366R_CMD_READ_MDR0         (0x48) /* read mode register 0         */
+#define _LS7366R_CMD_READ_MDR1         (0x50) /* read mode register 1         */
 #define _LS7366R_CMD_READ_CNTR_OTR     (0x60) /* read data -> output register */
-#define _LS7366R_CMD_READ_OTR          (0x68) /* read output register            */
-#define _LS7366R_CMD_READ_STR          (0x70) /* read status register            */
+#define _LS7366R_CMD_READ_OTR          (0x68) /* read output register         */
+#define _LS7366R_CMD_READ_STR          (0x70) /* read status register         */
 
-#define _LS7366R_CMD_WRITE_MDR0        (0x88) /* write mode register 0           */
-#define _LS7366R_CMD_WRITE_MDR1        (0x90) /* write mode register 1           */
-#define _LS7366R_CMD_WRITE_DTR         (0x98) /* write data register             */
+#define _LS7366R_CMD_WRITE_MDR0        (0x88) /* write mode register 0        */
+#define _LS7366R_CMD_WRITE_MDR1        (0x90) /* write mode register 1        */
+#define _LS7366R_CMD_WRITE_DTR         (0x98) /* write data register          */
 
 #define _LS7366R_CMD_LOAD_DTR_CNTR     (0xE0) /* load data register -> data   */
 #define _LS7366R_CMD_LOAD_CNTR_OTR     (0xE8) /* load data -> output register */
