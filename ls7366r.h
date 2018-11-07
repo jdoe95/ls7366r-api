@@ -81,6 +81,15 @@
 #define LS7366R_MODE2_CTRLEN_1B      (3 << 0) /* 1 byte counter mode */
 
 /*
+ * Counter enable
+ *
+ * ENABLE : enable counting
+ * DISABLE: disable counting
+ */
+#define LS7366R_MODE2_CTR_ENABLE     (0 << 2) /* enable counter  */
+#define LS7366R_MODE2_CTR_DISABLE    (1 << 2) /* disable counter */
+
+/*
  * Flag modes
  *
  * NONE : IFLAG and DFLAG outputs no action
