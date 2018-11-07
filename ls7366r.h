@@ -358,7 +358,7 @@ static __inline uint16_t ls7366r_get_counter_2b(uint8_t chip_sel) {
 	uint16_t ret = 0;
 	_ls7366r_chip_sel(chip_sel);
 	_ls7366r_spi_transfer(chip_sel, _LS7366R_CMD_READ_CNTR_OTR);
-	ret |= _ls7366r_spi_transfer(chip_sel, 0x00) << 8;
+	ret |= (uint16_t)_ls7366r_spi_transfer(chip_sel, 0x00) << 8;
 	ret |= _ls7366r_spi_transfer(chip_sel, 0x00);
 	_ls7366r_chip_desel(chip_sel);
 	return ret;
@@ -376,8 +376,8 @@ static __inline uint32_t ls7366r_get_counter_3b(uint8_t chip_sel) {
 	uint32_t ret = 0;
 	_ls7366r_chip_sel(chip_sel);
 	_ls7366r_spi_transfer(chip_sel, _LS7366R_CMD_READ_CNTR_OTR);
-	ret |= _ls7366r_spi_transfer(chip_sel, 0x00) << 16;
-	ret |= _ls7366r_spi_transfer(chip_sel, 0x00) << 8;
+	ret |= (uint32_t)_ls7366r_spi_transfer(chip_sel, 0x00) << 16;
+	ret |= (uint32_t)_ls7366r_spi_transfer(chip_sel, 0x00) << 8;
 	ret |= _ls7366r_spi_transfer(chip_sel, 0x00);
 	_ls7366r_chip_desel(chip_sel);
 	return ret;
@@ -395,9 +395,9 @@ static __inline uint32_t ls7366r_get_counter_4b(uint8_t chip_sel) {
 	uint32_t ret = 0;
 	_ls7366r_chip_sel(chip_sel);
 	_ls7366r_spi_transfer(chip_sel, _LS7366R_CMD_READ_CNTR_OTR);
-	ret |= _ls7366r_spi_transfer(chip_sel, 0x00) << 24;
-	ret |= _ls7366r_spi_transfer(chip_sel, 0x00) << 16;
-	ret |= _ls7366r_spi_transfer(chip_sel, 0x00) << 8;
+	ret |= (uint32_t)_ls7366r_spi_transfer(chip_sel, 0x00) << 24;
+	ret |= (uint32_t)_ls7366r_spi_transfer(chip_sel, 0x00) << 16;
+	ret |= (uint32_t)_ls7366r_spi_transfer(chip_sel, 0x00) << 8;
 	ret |= _ls7366r_spi_transfer(chip_sel, 0x00);
 	_ls7366r_chip_desel(chip_sel);
 	return ret;
@@ -430,7 +430,7 @@ static __inline uint16_t ls7366r_get_last_counter_2b(uint8_t chip_sel) {
 	uint16_t ret = 0;
 	_ls7366r_chip_sel(chip_sel);
 	_ls7366r_spi_transfer(chip_sel, _LS7366R_CMD_READ_OTR);
-	ret |= _ls7366r_spi_transfer(chip_sel, 0x00) << 8;
+	ret |= (uint16_t)_ls7366r_spi_transfer(chip_sel, 0x00) << 8;
 	ret |= _ls7366r_spi_transfer(chip_sel, 0x00);
 	_ls7366r_chip_desel(chip_sel);
 	return ret;
@@ -447,8 +447,8 @@ static __inline uint32_t ls7366r_get_last_counter_3b(uint8_t chip_sel) {
 	uint32_t ret = 0;
 	_ls7366r_chip_sel(chip_sel);
 	_ls7366r_spi_transfer(chip_sel, _LS7366R_CMD_READ_OTR);
-	ret |= _ls7366r_spi_transfer(chip_sel, 0x00) << 16;
-	ret |= _ls7366r_spi_transfer(chip_sel, 0x00) << 8;
+	ret |= (uint32_t)_ls7366r_spi_transfer(chip_sel, 0x00) << 16;
+	ret |= (uint32_t)_ls7366r_spi_transfer(chip_sel, 0x00) << 8;
 	ret |= _ls7366r_spi_transfer(chip_sel, 0x00);
 	_ls7366r_chip_desel(chip_sel);
 	return ret;
@@ -465,9 +465,9 @@ static __inline uint32_t ls7366r_get_last_counter_4b(uint8_t chip_sel) {
 	uint32_t ret = 0;
 	_ls7366r_chip_sel(chip_sel);
 	_ls7366r_spi_transfer(chip_sel, _LS7366R_CMD_READ_OTR);
-	ret |= _ls7366r_spi_transfer(chip_sel, 0x00) << 24;
-	ret |= _ls7366r_spi_transfer(chip_sel, 0x00) << 16;
-	ret |= _ls7366r_spi_transfer(chip_sel, 0x00) << 8;
+	ret |= (uint32_t)_ls7366r_spi_transfer(chip_sel, 0x00) << 24;
+	ret |= (uint32_t)_ls7366r_spi_transfer(chip_sel, 0x00) << 16;
+	ret |= (uint32_t)_ls7366r_spi_transfer(chip_sel, 0x00) << 8;
 	ret |= _ls7366r_spi_transfer(chip_sel, 0x00);
 	_ls7366r_chip_desel(chip_sel);
 	return ret;
