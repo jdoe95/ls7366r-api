@@ -31,10 +31,10 @@
  * RANGELIMIT: saturates to DTR or 0
  * MODULON   : modulo-n counting mode, input clock divided by (DTR+1)
  */
-#define LS7366R_MODE1_data_FREERUN        (0 << 2) /* free-running count mode */
-#define LS7366R_MODE1_data_SINGLE         (1 << 2) /* single-cycle count mode */
-#define LS7366R_MODE1_data_RANGELIMIT     (2 << 2) /* range-limit count mode  */
-#define LS7366R_MODE1_data_MODULON        (3 << 2) /* modulo-n count mode     */
+#define LS7366R_MODE1_COUNTER_FREERUN        (0 << 2) /* free-running count mode */
+#define LS7366R_MODE1_COUNTER_SINGLE         (1 << 2) /* single-cycle count mode */
+#define LS7366R_MODE1_COUNTER_RANGELIMIT     (2 << 2) /* range-limit count mode  */
+#define LS7366R_MODE1_COUNTER_MODULON        (3 << 2) /* modulo-n count mode     */
 
 /*
  * Index modes
@@ -45,8 +45,8 @@
  * LOAD_OTR     : transfers CNTR to OTR upon index
  */
 #define LS7366R_MODE1_INDEX_DISABLE          (0 << 4) /* disable index */
-#define LS7366R_MODE1_INDEX_LOAD_data     (1 << 4)    /* reset CNTR    */
-#define LS7366R_MODE1_INDEX_RESET_data    (2 << 4)    /* reset CNTR    */
+#define LS7366R_MODE1_INDEX_LOAD_COUNTER     (1 << 4) /* reset CNTR    */
+#define LS7366R_MODE1_INDEX_RESET_COUNTER    (2 << 4) /* reset CNTR    */
 #define LS7366R_MODE1_INDEX_LOAD_OTR         (3 << 4) /* load OTR      */
 
 /*
